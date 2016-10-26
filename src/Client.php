@@ -19,7 +19,7 @@ class Client
     /** @var string */
     public $accessToken;
 
-    public function __construct(array $properties = [])
+    public function __construct(array $properties)
     {
         $this->url = $properties['api_url'];
         $this->clientId = $properties['client_id'];

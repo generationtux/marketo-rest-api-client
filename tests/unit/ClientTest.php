@@ -10,7 +10,12 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      */
     public function it_should_initialize_client_class()
     {
-        $client = new Client();
+        $properties = [
+            'api_url' => 'foo.bar/api',
+            'client_id' => 'foobarid',
+            'client_secret' => 'foobarsecret'
+        ];
+        $client = new Client($properties);
 
         $this->assertInstanceOf(Client::class, $client);
     }
