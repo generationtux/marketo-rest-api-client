@@ -4,6 +4,7 @@ namespace GenTux\Marketo\Api;
 
 
 use GenTux\Marketo\Client;
+use GenTux\Marketo\Exceptions\MarketoApiException;
 
 class LeadsApi extends BaseApi
 {
@@ -20,7 +21,13 @@ class LeadsApi extends BaseApi
         parent::__construct();
     }
 
-    public function create() {
+    public function create(array $leads)
+    {
+        $url = $this->client->url . '/rest/v1/leads.json';
+        $response = $this->post($url , [ 'input' => $leads ]);
 
+        if (!$response->success) {
+            throw new MarketoApiException('Error creating lead: ' . $response->errors[0]->message);
+        }
     }
 }
