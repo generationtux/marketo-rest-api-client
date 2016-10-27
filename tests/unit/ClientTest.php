@@ -7,18 +7,24 @@ use GenTux\Marketo\Api\AuthApi;
 
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
+    /** @var  array */
+    protected $fooProperties;
 
+    public function setUp()
+    {
+        parent::setUp();
+        $this->fooProperties = [
+            'api_url' => 'foo.bar/api',
+            'client_id' => 'foobarid',
+            'client_secret' => 'foobarsecret'
+        ];
+    }
     /**
      * @test
      */
     public function it_should_initialize_client_class()
     {
-        $properties = [
-            'api_url' => 'foo.bar/api',
-            'client_id' => 'foobarid',
-            'client_secret' => 'foobarsecret'
-        ];
-        $client = new Client($properties);
+        $client = new Client($this->fooProperties);
 
         $this->assertInstanceOf(Client::class, $client);
     }
@@ -28,14 +34,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      */
     public function it_should_create_an_instance_of_auth_api()
     {
-        $properties = [
-            'api_url' => 'foo',
-            'client_id' => 'bar',
-            'client_secret' => 'foobar'
-        ];
+        $client = new Client($this->fooProperties);
 
-        $client = new Client($properties);
-
-        $this->assertInstanceOf(AuthApi::class,$client->auth());
+        $this->assertInstanceOf(AuthApi::class, $client->auth());
     }
 }
