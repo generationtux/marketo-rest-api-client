@@ -18,7 +18,7 @@ class LeadsApi extends BaseApi
     public function __construct(Client $client)
     {
         $this->client = $client;
-        parent::__construct();
+        parent::__construct($this->client->guzzle);
     }
 
     public function create(array $leads)

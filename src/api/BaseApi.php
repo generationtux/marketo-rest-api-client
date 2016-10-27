@@ -3,16 +3,16 @@
 namespace GenTux\Marketo\Api;
 
 
-use GuzzleHttp\Client;
+use GuzzleHttp\Client as Guzzle;
 
 class BaseApi
 {
-    /** @var Client */
+    /** @var Guzzle */
     private $guzzle;
 
-    public function __construct()
+    public function __construct(Guzzle $guzzle)
     {
-        $this->guzzle = new Client();
+        $this->guzzle = $guzzle;
     }
 
     public function get($url)

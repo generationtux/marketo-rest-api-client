@@ -3,3 +3,4 @@
 composer.phar
 /.idea/
 ide_helper.php
+/tests/integration/
