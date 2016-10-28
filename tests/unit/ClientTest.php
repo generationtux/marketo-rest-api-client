@@ -36,6 +36,6 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client($this->fooProperties);
 
-        $this->assertInstanceOf(AuthApi::class, $client->auth());
+        $this->assertInstanceOf('GenTux\Marketo\Api\AuthApi', $client->auth());
     }
 }
