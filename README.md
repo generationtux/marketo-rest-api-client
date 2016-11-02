@@ -11,11 +11,11 @@
 ### Instantiation
 
 ```php
-$client = new Client([
-    'api_url' => 'foo.bar/api',
-    'client_id' => 'foobarid',
-    'client_secret' => 'foobarsecret'
-]);
+    $client = new Client([
+        'api_url' => 'foo.bar/api',
+        'client_id' => 'foobarid',
+        'client_secret' => 'foobarsecret'
+    ]);
 ```
 
 ### Setting an access token
@@ -23,8 +23,8 @@ $client = new Client([
 All endpoints require an access token before usage.
 
 ```php
-$client->auth()->setAccessToken();
-$client->accessToken // will output access token
+    $client->auth()->setAccessToken();
+    $client->accessToken // will output access token
 ```
 
 ### Creating a lead
@@ -32,26 +32,26 @@ $client->accessToken // will output access token
 Click [here](http://developers.marketo.com/rest-api/lead-database/fields/list-of-standard-fields/) to find all valid fields for leads.
 
 ```php
-$client->leads()->create([
-    [
-      'firstName' => 'Joe',
-      'lastName'  => 'Bar',
-      'email'     => 'foolead1@bar.com'
-    ],
-    [
-      'firstName' => 'Sally',
-      'lastName'  => 'Bar',
-      'email'     => 'foolead2@bar.com'
-    ]
-]);
+    $client->leads()->create([
+        [
+          'firstName' => 'Joe',
+          'lastName'  => 'Bar',
+          'email'     => 'foolead1@bar.com'
+        ],
+        [
+          'firstName' => 'Sally',
+          'lastName'  => 'Bar',
+          'email'     => 'foolead2@bar.com'
+        ]
+    ]);
 ```
 
 ### Getting a lead
 
 ```php
-$lead = $client->leads()->get('fooemail@bar.com'); // outputs an object with all valid information on the lead
-
-$lead->email; // outputs 'fooemail@bar.com'
+    $lead = $client->leads()->get('fooemail@bar.com'); // outputs an object with all valid information on the lead
+    
+    $lead->email; // outputs 'fooemail@bar.com'
 ```
 
 ### Triggering a campaign
@@ -60,10 +60,10 @@ To trigger a campaign, provide the campaign id, the email of the lead that will 
 and an array of tokens (variables) for the template email belonging to the campaign
 
 ```php
-$client-campaign()
-    ->trigger(1234, 'foobar@email.com',
-        [
-            '{{my.name}}' => 'Foo'
-        ]
-    );
+    $client-campaign()
+        ->trigger(1234, 'foobar@email.com',
+            [
+                '{{my.name}}' => 'Foo'
+            ]
+        );
 ```
