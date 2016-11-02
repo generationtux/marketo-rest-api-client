@@ -3,7 +3,7 @@
 namespace GenTux\tests;
 
 
-use GenTux\Marketo\api\AuthApi;
+use GenTux\Marketo\Api\AuthApi;
 
 class AuthApiTest extends TestCase
 {

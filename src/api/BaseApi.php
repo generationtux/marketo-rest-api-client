@@ -1,6 +1,6 @@
 <?php
 
-namespace GenTux\Marketo\api;
+namespace GenTux\Marketo\Api;
 
 
 use GuzzleHttp\Client as Guzzle;
