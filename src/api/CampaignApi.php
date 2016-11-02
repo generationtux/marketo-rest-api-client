@@ -4,7 +4,7 @@ namespace GenTux\Marketo\api;
 
 
 use GenTux\Marketo\Client;
-use GenTux\Marketo\Exceptions\MarketoApiException;
+use GenTux\Marketo\exceptions\MarketoApiException;
 
 class CampaignApi extends BaseApi
 {
