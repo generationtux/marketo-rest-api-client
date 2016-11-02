@@ -18,15 +18,6 @@ $client = new Client([
 ]);
 ```
 
-### Setting an access token
-
-All endpoints require an access token before usage.
-
-```php
-$client->auth()->setAccessToken();
-$client->accessToken // will output access token
-```
-
 ### Creating a lead
 
 Click [here](http://developers.marketo.com/rest-api/lead-database/fields/list-of-standard-fields/) to find all valid fields for leads.

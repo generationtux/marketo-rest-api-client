@@ -18,7 +18,9 @@ class TestCase extends \PHPUnit_Framework_TestCase
      */
     protected function clientStub($body)
     {
+        $accessTokenBody = '{"access_token" : "foobaraccess"}';
         $mock = new MockHandler([
+            new Response(200, ['Content-Type' => 'application/json'], $accessTokenBody),
             new Response(200, ['Content-Type' => 'application/json'], $body)
         ]);
 

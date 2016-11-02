@@ -3,7 +3,6 @@
 namespace GenTux\tests;
 
 
-use GenTux\Marketo\Api\AuthApi;
 use GenTux\Marketo\Api\CampaignApi;
 use GenTux\Marketo\Api\LeadApi;
 use GenTux\Marketo\Client;
@@ -40,16 +39,6 @@ class ClientTest extends TestCase
     {
         $this->setExpectedException(MissingRequiredPropertiesException::class);
         new Client([]);
-    }
-
-    /**
-     * @test
-     */
-    public function it_should_initialize_auth_api_class()
-    {
-        $client = new Client($this->fooProperties);
-
-        $this->assertInstanceOf(AuthApi::class, $client->auth());
     }
 
     /**

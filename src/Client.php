@@ -2,7 +2,6 @@
 
 namespace GenTux\Marketo;
 
-use GenTux\Marketo\Api\AuthApi;
 use GenTux\Marketo\Api\CampaignApi;
 use GenTux\Marketo\Api\LeadApi;
 use GenTux\Marketo\Exceptions\MissingRequiredPropertiesException;
@@ -50,14 +49,6 @@ class Client
     public function leads()
     {
         return new LeadApi($this);
-    }
-
-    /**
-     * @return AuthApi
-     */
-    public function auth()
-    {
-        return new AuthApi($this);
     }
 
     /**

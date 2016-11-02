@@ -2,20 +2,20 @@
 
 namespace GenTux\Marketo\Api;
 
-use GuzzleHttp\Client as Guzzle;
+use GenTux\Marketo\Client;
 
 class BaseApi
 {
-    /** @var Guzzle */
-    private $guzzle;
+    /** @var Client */
+    protected $client;
 
     /**
      * BaseApi constructor.
-     * @param Guzzle $guzzle
+     * @param Client $client
      */
-    public function __construct(Guzzle $guzzle)
+    public function __construct(Client $client)
     {
-        $this->guzzle = $guzzle;
+        $this->client = $client;
     }
 
     /**
@@ -65,10 +65,37 @@ class BaseApi
      */
     public function request($url, $method, array $data = [])
     {
-        $response = $this->guzzle->request($method, $url , ['json' => $data])
-            ->getBody()
-            ->getContents();
+        if (!isset($this->client->accessToken)) {
+            $this->setAccessToken();
+        }
+
+        $response = $this->client->guzzle->request($method, $url , [
+            'json' => $data,
+            'query' => [
+                'access_token' => $this->client->accessToken
+            ]
+        ])->getBody()->getContents();
 
         return json_decode($response);
+    }
+
+    /**
+     * Set access token
+     */
+    private function setAccessToken()
+    {
+        $url = $this->client->url . '/identity/oauth/token';
+        $clientId = $this->client->clientId;
+        $clientSecret = $this->client->clientSecret;
+        $queryString = "?grant_type=client_credentials&client_id=$clientId&client_secret=$clientSecret";
+
+        $response = json_decode(
+            $this->client->guzzle
+                ->request('GET', $url . $queryString)
+                ->getBody()
+                ->getContents()
+        );
+
+        $this->client->setAccessToken($response->access_token);
     }
 }

@@ -7,17 +7,13 @@ use GenTux\Marketo\Exceptions\MarketoApiException;
 
 class CampaignApi extends BaseApi
 {
-    /** @var Client */
-    protected $client;
-
     /**
      * LeadsApi constructor.
      * @param Client $client
      */
     public function __construct(Client $client)
     {
-        $this->client = $client;
-        parent::__construct($this->client->guzzle);
+        parent::__construct($client);
     }
 
     /**
@@ -32,8 +28,7 @@ class CampaignApi extends BaseApi
     {
         $lead = $this->client->leads()->get($email);
         $tokens = $this->parseTokens($tokens);
-        $accessToken = $this->client->accessToken;
-        $response = $this->post($this->client->url . "/rest/v1/campaigns/$campaignId/trigger.json?access_token=$accessToken",
+        $response = $this->post($this->client->url . "/rest/v1/campaigns/$campaignId/trigger.json",
             [
                 'input' => [
                     'leads' => [
