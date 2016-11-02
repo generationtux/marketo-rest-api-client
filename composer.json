@@ -16,6 +16,9 @@
         "mockery/mockery": "^0.9.5"
     },
     "autoload": {
-        "psr-4": { "GenTux\\Marketo\\": "src/" }
+        "psr-4": {
+            "GenTux\\Marketo\\": "src/",
+            "GenTux\\tests\\": "tests/"
+        }
     }
 }

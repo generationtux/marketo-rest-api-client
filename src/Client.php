@@ -4,7 +4,8 @@ namespace GenTux\Marketo;
 
 
 use GenTux\Marketo\Api\AuthApi;
-use GenTux\Marketo\Api\LeadsApi;
+use GenTux\Marketo\Api\CampaignApi;
+use GenTux\Marketo\Api\LeadApi;
 use GuzzleHttp\Client as Guzzle;
 
 class Client
@@ -35,12 +36,17 @@ class Client
 
     public function leads()
     {
-        return new LeadsApi($this);
+        return new LeadApi($this);
     }
 
     public function auth()
     {
         return new AuthApi($this);
+    }
+
+    public function campaign()
+    {
+        return new CampaignApi($this);
     }
 
     public function setAccessToken($accessToken)

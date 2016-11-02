@@ -16,6 +16,9 @@ class AuthApi extends BaseApi
         parent::__construct($this->client->guzzle);
     }
 
+    /**
+     * Obtain an oauth token from Marketo
+     */
     public function setAccessToken()
     {
         $url = $this->client->url . '/identity/oauth/token';

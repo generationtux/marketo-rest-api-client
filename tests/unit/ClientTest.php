@@ -1,11 +1,11 @@
 <?php
 
-namespace GenTux\Marketo;
+namespace GenTux\tests;
 
 
-use GenTux\Marketo\Api\AuthApi;
+use GenTux\Marketo\Client;
 
-class ClientTest extends \PHPUnit_Framework_TestCase
+class ClientTest extends TestCase
 {
     /** @var  array */
     protected $fooProperties;
