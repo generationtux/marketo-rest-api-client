@@ -2,10 +2,9 @@
 
 namespace GenTux\tests;
 
-
-use GenTux\Marketo\api\LeadApi;
-use GenTux\Marketo\exceptions\LeadDoesNotExistException;
-use GenTux\Marketo\exceptions\MarketoApiException;
+use GenTux\Marketo\Api\LeadApi;
+use GenTux\Marketo\Exceptions\LeadDoesNotExistException;
+use GenTux\Marketo\Exceptions\MarketoApiException;
 
 class LeadApiTest extends TestCase
 {

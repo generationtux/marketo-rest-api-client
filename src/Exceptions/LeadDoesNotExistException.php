@@ -1,7 +1,6 @@
 <?php
 
-namespace GenTux\Marketo\exceptions;
-
+namespace GenTux\Marketo\Exceptions;
 
 class LeadDoesNotExistException extends \Exception
 {

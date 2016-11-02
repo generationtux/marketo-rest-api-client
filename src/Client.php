@@ -2,11 +2,10 @@
 
 namespace GenTux\Marketo;
 
-
-use GenTux\Marketo\api\AuthApi;
-use GenTux\Marketo\api\CampaignApi;
-use GenTux\Marketo\api\LeadApi;
-use GenTux\Marketo\exceptions\MissingRequiredPropertiesException;
+use GenTux\Marketo\Api\AuthApi;
+use GenTux\Marketo\Api\CampaignApi;
+use GenTux\Marketo\Api\LeadApi;
+use GenTux\Marketo\Exceptions\MissingRequiredPropertiesException;
 use GuzzleHttp\Client as Guzzle;
 
 class Client

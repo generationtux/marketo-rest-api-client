@@ -1,11 +1,10 @@
 <?php
 
-namespace GenTux\Marketo\api;
-
+namespace GenTux\Marketo\Api;
 
 use GenTux\Marketo\Client;
-use GenTux\Marketo\exceptions\LeadDoesNotExistException;
-use GenTux\Marketo\exceptions\MarketoApiException;
+use GenTux\Marketo\Exceptions\LeadDoesNotExistException;
+use GenTux\Marketo\Exceptions\MarketoApiException;
 
 class LeadApi extends BaseApi
 {

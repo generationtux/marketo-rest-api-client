@@ -1,10 +1,9 @@
 <?php
 
-namespace GenTux\Marketo\api;
-
+namespace GenTux\Marketo\Api;
 
 use GenTux\Marketo\Client;
-use GenTux\Marketo\exceptions\MarketoApiException;
+use GenTux\Marketo\Exceptions\MarketoApiException;
 
 class CampaignApi extends BaseApi
 {

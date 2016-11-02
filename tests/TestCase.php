@@ -2,7 +2,6 @@
 
 namespace GenTux\tests;
 
-
 use GenTux\Marketo\Client;
 use GuzzleHttp\Client as Guzzle;
 use GuzzleHttp\Handler\MockHandler;

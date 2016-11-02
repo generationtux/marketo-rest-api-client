@@ -3,11 +3,11 @@
 namespace GenTux\tests;
 
 
-use GenTux\Marketo\api\AuthApi;
-use GenTux\Marketo\api\CampaignApi;
-use GenTux\Marketo\api\LeadApi;
+use GenTux\Marketo\Api\AuthApi;
+use GenTux\Marketo\Api\CampaignApi;
+use GenTux\Marketo\Api\LeadApi;
 use GenTux\Marketo\Client;
-use GenTux\Marketo\exceptions\MissingRequiredPropertiesException;
+use GenTux\Marketo\Exceptions\MissingRequiredPropertiesException;
 
 class ClientTest extends TestCase
 {
