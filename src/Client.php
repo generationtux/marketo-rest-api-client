@@ -3,9 +3,9 @@
 namespace GenTux\Marketo;
 
 
-use GenTux\Marketo\Api\AuthApi;
-use GenTux\Marketo\Api\CampaignApi;
-use GenTux\Marketo\Api\LeadApi;
+use GenTux\Marketo\api\AuthApi;
+use GenTux\Marketo\api\CampaignApi;
+use GenTux\Marketo\api\LeadApi;
 use GuzzleHttp\Client as Guzzle;
 
 class Client
