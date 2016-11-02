@@ -10,6 +10,10 @@ class AuthApi extends BaseApi
     /** @var Client */
     protected $client;
 
+    /**
+     * AuthApi constructor.
+     * @param Client $client
+     */
     public function __construct(Client $client)
     {
         $this->client = $client;
@@ -17,7 +21,7 @@ class AuthApi extends BaseApi
     }
 
     /**
-     * Obtain an oauth token from Marketo
+     * Set an access token on the Client instance
      */
     public function setAccessToken()
     {
