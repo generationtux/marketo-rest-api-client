@@ -36,7 +36,7 @@ class CampaignApiTest extends TestCase
 
 
         $campaignApi = new CampaignApi($client);
-        $campaignApi->trigger('fooId', 'foobar@email.com',
+        $campaignApi->trigger(123, 'foobar@email.com',
             [
                 '{{my.name}}' => 'Foo'
             ]
@@ -67,7 +67,7 @@ class CampaignApiTest extends TestCase
 
 
         $campaignApi = new CampaignApi($client);
-        $campaignApi->trigger('fooId', 'foobar@email.com',
+        $campaignApi->trigger(123, 'foobar@email.com',
             [
                 '{{my.name}}' => 'Foo'
             ]

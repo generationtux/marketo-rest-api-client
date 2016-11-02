@@ -7,6 +7,7 @@ use GenTux\Marketo\api\AuthApi;
 use GenTux\Marketo\api\CampaignApi;
 use GenTux\Marketo\api\LeadApi;
 use GenTux\Marketo\Client;
+use GenTux\Marketo\exceptions\MissingRequiredPropertiesException;
 
 class ClientTest extends TestCase
 {
@@ -30,6 +31,15 @@ class ClientTest extends TestCase
         $client = new Client($this->fooProperties);
 
         $this->assertInstanceOf(Client::class, $client);
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_throw_an_exception_if_properties_are_missing()
+    {
+        $this->setExpectedException(MissingRequiredPropertiesException::class);
+        new Client([]);
     }
 
     /**
