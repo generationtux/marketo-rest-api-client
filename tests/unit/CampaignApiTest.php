@@ -3,7 +3,7 @@
 namespace GenTux\tests;
 
 
-use GenTux\Marketo\Api\CampaignApi;
+use GenTux\Marketo\api\CampaignApi;
 use GenTux\Marketo\Client;
 use GenTux\Marketo\Exceptions\MarketoApiException;
 use GuzzleHttp\Handler\MockHandler;

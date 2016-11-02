@@ -1,6 +1,6 @@
 <?php
 
-namespace GenTux\Marketo\Api;
+namespace GenTux\Marketo\api;
 
 
 use GenTux\Marketo\Client;
