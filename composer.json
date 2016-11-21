@@ -13,7 +13,7 @@
     "require": {
         "phpunit/phpunit": "~4.0",
         "guzzlehttp/guzzle": "~6.0",
-        "mockery/mockery": "^0.9.5"
+        "mockery/mockery": "^0.9"
     },
     "autoload": {
         "psr-4": {
