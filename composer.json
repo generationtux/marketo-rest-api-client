@@ -13,7 +13,9 @@
     "require": {
         "phpunit/phpunit": "~4.0",
         "guzzlehttp/guzzle": "~6.0",
-        "mockery/mockery": "^0.9"
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9.5"
     },
     "autoload": {
         "psr-4": {
