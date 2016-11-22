@@ -26,7 +26,7 @@ class CampaignApi extends BaseApi
      */
     public function trigger($campaignId, $email, array $tokens)
     {
-        $lead = $this->client->leads()->get($email);
+        $lead = $this->client->leads()->show($email);
         $tokens = $this->parseTokens($tokens);
         $response = $this->post($this->client->url . "/rest/v1/campaigns/$campaignId/trigger.json",
             [

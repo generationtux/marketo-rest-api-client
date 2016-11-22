@@ -51,7 +51,7 @@ class LeadApiTest extends TestCase
         $client = $this->clientStub($body);
 
         $leadApi = new LeadApi($client);
-        $this->assertEquals($testEmail, $leadApi->get($testEmail)->email);
+        $this->assertEquals($testEmail, $leadApi->show($testEmail)->email);
     }
 
     /**
@@ -66,7 +66,7 @@ class LeadApiTest extends TestCase
 
         $leadApi = new LeadApi($client);
 
-        $this->assertEquals($testEmail, $leadApi->get($testEmail)->email);
+        $this->assertEquals($testEmail, $leadApi->show($testEmail)->email);
     }
 
     /**
@@ -80,6 +80,6 @@ class LeadApiTest extends TestCase
         $client = $this->clientStub($body);
         $leadApi = new LeadApi($client);
 
-        $this->assertEquals($testEmail, $leadApi->get($testEmail)->email);
+        $this->assertEquals($testEmail, $leadApi->show($testEmail)->email);
     }
 }
