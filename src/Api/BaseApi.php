@@ -20,11 +20,12 @@ class BaseApi
 
     /**
      * @param $url
+     * @param $queryParams
      * @return mixed
      */
-    public function get($url)
+    public function get($url, $queryParams = [])
     {
-        return $this->request($url, 'GET');
+        return $this->request($url, 'GET', [], $queryParams);
     }
 
     /**
@@ -61,19 +62,19 @@ class BaseApi
      * @param $url
      * @param $method
      * @param array $data
+     * @param array $queryParams
      * @return mixed
      */
-    public function request($url, $method, array $data = [])
+    public function request($url, $method, array $data = [], $queryParams = [])
     {
         if (!isset($this->client->accessToken)) {
             $this->setAccessToken();
         }
 
+        $queryParams['access_token'] = $this->client->accessToken;
         $response = $this->client->guzzle->request($method, $url , [
             'json' => $data,
-            'query' => [
-                'access_token' => $this->client->accessToken
-            ]
+            'query' => $queryParams
         ])->getBody()->getContents();
 
         return json_decode($response);

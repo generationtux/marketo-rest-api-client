@@ -41,11 +41,14 @@ class LeadApi extends BaseApi
      * @throws LeadDoesNotExistException
      * @throws MarketoApiException
      */
-    public function get($email)
+    public function show($email)
     {
         $url = $this->client->url . '/rest/v1/leads.json';
-        $queryParams = "?filterType=email&filterValues=$email";
-        $response = parent::get($url . $queryParams);
+        $queryParams = [
+            'filterType' => 'email',
+            'filterValues' => $email
+        ];
+        $response = parent::get($url, $queryParams);
         if ($response->success) {
             if (count($response->result) > 0) {
                 return $response->result[0];

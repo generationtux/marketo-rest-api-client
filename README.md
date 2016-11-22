@@ -40,7 +40,7 @@ $client->leads()->create([
 ### Getting a lead
 
 ```php
-$lead = $client->leads()->get('fooemail@bar.com'); // outputs an object with all valid information on the lead
+$lead = $client->leads()->show('fooemail@bar.com'); // outputs an object with all valid information on the lead
 
 $lead->email; // outputs 'fooemail@bar.com'
 ```
