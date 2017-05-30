@@ -9,7 +9,7 @@ use GenTux\Marketo\Exceptions\MarketoApiException;
 class CustomObjectApi extends BaseApi
 {
     /** @var $customObjectName */
-    protected $customObjectName;
+    public $customObjectName;
     /**
      * CustomObjectApi constructor.
      * @param string $customObjectName
@@ -35,7 +35,7 @@ class CustomObjectApi extends BaseApi
         $action = "createOrUpdate"
     )
     {
-        $url = $this->client->url . '/rest/v1/customobjects/' . $this->customerObjectName . '.json';
+        $url = $this->client->url . '/rest/v1/customobjects/' . $this->customObjectName . '.json';
         $response = $this->post($url , [
             'action' => $action,
             'lookupField' => $lookupField,
@@ -48,21 +48,21 @@ class CustomObjectApi extends BaseApi
     }
 
     /**
-     * Delete a custom object
+     * Deletes custom objects
      *
-     * @param array $customObjects
+     * @param array $customObjectIds [ [ someUniqueIdentifer: 123 ], [ someUniqueIdentifier: 124 ] ]
      * @param string $deleteBy
      * @throws MarketoApiException
      */
-    public function delete(
-        array $customObjects,
+    public function destroy(
+        array $customObjectIds,
         $deleteBy = "dedupeFields"
     )
     {
-        $url = $this->client->url . '/rest/v1/customobjects/' . $this->customerObjectName . 'delete.json';
+        $url = $this->client->url . '/rest/v1/customobjects/' . $this->customObjectName . 'delete.json';
         $response = $this->delete($url, [
             'deleteBy' => $deleteBy,
-            'input' => $customObjects
+            'input' => $customObjectIds
         ]);
 
         if (!$response->success) {

@@ -63,7 +63,7 @@ class Client
      /**
      * @return CustomObjectApi
      */
-    public function CustomObjectApi($customObjectName)
+    public function customObjects($customObjectName)
     {
         return new CustomObjectApi($this, $customObjectName);
     }
