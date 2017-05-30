@@ -25,20 +25,20 @@ class CustomObjectApi extends BaseApi
      * Create or Update custom object
      *
      * @param array $customObjects
-     * @param string $lookupField
+     * @param string $dedupeBy
      * @param string $action
      * @throws MarketoApiException
      */
     public function sync(
         array $customObjects,
-        $lookupField = "email",
+        $dedupeBy = "dedupeFields",
         $action = "createOrUpdate"
     )
     {
         $url = $this->client->url . '/rest/v1/customobjects/' . $this->customObjectName . '.json';
         $response = $this->post($url , [
             'action' => $action,
-            'lookupField' => $lookupField,
+            'dedupeBy' => $dedupeBy,
             'input' => $customObjects 
         ]);
 

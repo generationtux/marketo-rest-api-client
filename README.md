@@ -80,8 +80,8 @@ $client->customObjects('member')->sync($customObjects);
 
 // Alternatively, the sync method takes two additional,  albeit optional, arguments to override
 // the default values.
-// lookupField defaults to 'email' and action defaults to 'createOrUpdate'.
-$client->customObjects('member')->sync($customObjects, $lookupField = 'someUniqueValue', $action = 'createOnly');
+// dedupeBy defaults to 'dedupeFields' and action defaults to 'createOrUpdate'.
+$client->customObjects('member')->sync($customObjects, $dedupeBy = 'someUniqueIdentifier', $action = 'createOnly');
 
 ```
 
