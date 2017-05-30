@@ -100,6 +100,6 @@ $client->customObjects('member')->destroy($customObjectIds);
 
 // Alternatively, the destroy method takes an additional,  albeit optional, argument.
 // deleteBy defaults to 'dedupeFields'
-$client->customObjects('member')->sync($customObjectIds, $deleteBy = 'idField');
+$client->customObjects('member')->destroy($customObjectIds, $deleteBy = 'idField');
 
 ```
