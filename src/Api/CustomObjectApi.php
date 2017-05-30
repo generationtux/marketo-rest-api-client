@@ -24,7 +24,7 @@ class CustomObjectApi extends BaseApi
     /**
      * Create or Update custom object
      *
-     * @param array $customObject
+     * @param array $customObjects
      * @param string $lookupField
      * @param string $action
      * @throws MarketoApiException
@@ -40,6 +40,29 @@ class CustomObjectApi extends BaseApi
             'action' => $action,
             'lookupField' => $lookupField,
             'input' => $customObjects 
+        ]);
+
+        if (!$response->success) {
+            throw new MarketoApiException('Error syncing custom object: ' . $response->errors[0]->message);
+        }
+    }
+
+    /**
+     * Delete a custom object
+     *
+     * @param array $customObjects
+     * @param string $deleteBy
+     * @throws MarketoApiException
+     */
+    public function delete(
+        array $customObjects,
+        $deleteBy = "dedupeFields"
+    )
+    {
+        $url = $this->client->url . '/rest/v1/customobjects/' . $this->customerObjectName . 'delete.json';
+        $response = $this->delete($url, [
+            'deleteBy' => $deleteBy,
+            'input' => $customObjects
         ]);
 
         if (!$response->success) {
