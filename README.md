@@ -58,3 +58,48 @@ $client-campaign()
         ]
     );
 ```
+
+### Creating or Updating a Custom Object
+
+```php
+$customObjects = [
+            [
+                'yourUniqueIdentifier' => $id1,
+                'email' => 'someemail@test.com',
+                'eventName' => 'Some Event'
+            ],
+            [
+                'yourUniqueIdentifier' => $id2,
+                'email' => 'someemail1@test.com',
+                'eventName' => 'Some Event 2'
+            ],
+        ];
+
+// The customObjects method takes a customObject name as it's parameter.
+$client->customObjects('member')->sync($customObjects);
+
+// Alternatively, the sync method takes two additional,  albeit optional, arguments to override
+// the default values.
+// dedupeBy defaults to 'dedupeFields' and action defaults to 'createOrUpdate'.
+$client->customObjects('member')->sync($customObjects, $dedupeBy = 'someUniqueIdentifier', $action = 'createOnly');
+
+```
+
+### Deleting Custom Objects
+```php
+$customObjectIds = [
+            [
+                'yourUniqueIdentifier' => uniqid(),
+            ],
+            [
+                'yourUniqueIdentifier' => uniqid(),
+            ],
+        ];
+// The customObjects method takes a customObject name as it's parameter.
+$client->customObjects('member')->destroy($customObjectIds);
+
+// Alternatively, the destroy method takes an additional,  albeit optional, argument.
+// deleteBy defaults to 'dedupeFields'
+$client->customObjects('member')->destroy($customObjectIds, $deleteBy = 'idField');
+
+```
