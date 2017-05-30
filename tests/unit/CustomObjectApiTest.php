@@ -53,6 +53,23 @@ class CustomObjectApiTest extends TestCase
         ];
         $client->customObjects('member')->sync($customObjects);
     }
+
+    /**
+     * @test
+     */
+    public function it_should_throw_an_exception_if_there_is_an_error_in_syncing()
+    {
+        $this->setExpectedException(MarketoApiException::class);
+        $body = '{"success":false,"errors":[{"message":"There was an error creating or updating."}]}';
+        $client = $this->clientStub($body);
+
+        $customObjectApi = new CustomObjectApi($client, 'member');
+        $customObjectApi->sync([
+            [
+                'email' => 'foolead@bar.com'
+            ]
+        ]);
+    }
     /**
      * @test
      */
@@ -89,5 +106,22 @@ class CustomObjectApiTest extends TestCase
             ],
         ];
         $client->customObjects('member')->destroy($customObjectIds);
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_throw_an_exception_if_there_is_an_error_in_deleting()
+    {
+        $this->setExpectedException(MarketoApiException::class);
+        $body = '{"success":false,"errors":[{"message":"There was an error deleting."}]}';
+        $client = $this->clientStub($body);
+
+        $customObjectApi = new CustomObjectApi($client, 'member');
+        $customObjectApi->destroy([
+            [
+                'id' => uniqid(),
+            ]
+        ]);
     }
 }
