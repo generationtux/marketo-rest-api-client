@@ -3,7 +3,9 @@
 namespace GenTux\Marketo;
 
 use GenTux\Marketo\Api\CampaignApi;
+use GenTux\Marketo\Api\CustomActivitiesApi;
 use GenTux\Marketo\Api\LeadApi;
+use GenTux\Marketo\Api\CustomObjectApi;
 use GenTux\Marketo\Exceptions\MissingRequiredPropertiesException;
 use GuzzleHttp\Client as Guzzle;
 
@@ -57,6 +59,22 @@ class Client
     public function campaign()
     {
         return new CampaignApi($this);
+    }
+
+    /**
+     * @return CustomObjectApi
+     */
+    public function customObjects()
+    {
+        return new CustomObjectApi($this);
+    }
+
+    /**
+     * @return CustomActivitiesApi
+     */
+    public function customActivities()
+    {
+        return new CustomActivitiesApi($this);
     }
 
     /**

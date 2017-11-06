@@ -2,8 +2,9 @@
 
 namespace GenTux\tests;
 
-
 use GenTux\Marketo\Api\CampaignApi;
+use GenTux\Marketo\Api\CustomActivitiesApi;
+use GenTux\Marketo\Api\CustomObjectApi;
 use GenTux\Marketo\Api\LeadApi;
 use GenTux\Marketo\Client;
 use GenTux\Marketo\Exceptions\MissingRequiredPropertiesException;
@@ -59,5 +60,25 @@ class ClientTest extends TestCase
         $client = new Client($this->fooProperties);
 
         $this->assertInstanceOf(CampaignApi::class, $client->campaign());
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_initialize_custom_objects_api()
+    {
+        $client = new Client($this->fooProperties);
+
+        $this->assertInstanceOf(CustomObjectApi::class, $client->customObjects());
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_initialize_custom_activities_api()
+    {
+        $client = new Client($this->fooProperties);
+
+        $this->assertInstanceOf(CustomActivitiesApi::class, $client->customActivities());
     }
 }
