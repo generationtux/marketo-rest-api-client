@@ -21,7 +21,7 @@ class CustomActivitiesApi extends BaseApi
         $response = $this->post($url, ['input' => $fields]);
 
         if (!$response->success) {
-            throw new MarketoApiException('Error syncing custom object: ' . $response->errors[0]->message);
+            throw new MarketoApiException('Error creating custom activity: ' . $response->errors[0]->message);
         }
     }
 }
