@@ -26,14 +26,14 @@ class CustomObjectApiTest extends TestCase
     /**
      * @test
      */
-    public function it_should_throw_an_exception_if_there_is_an_error_in_lead_creation()
+    public function it_should_throw_an_exception_if_there_is_an_error_creating_or_updating_custom_activities()
     {
         $this->setExpectedException(MarketoApiException::class);
         $body = '{"success":false,"errors":[{"message":"There was an error syncing the object."}]}';
         $client = $this->clientStub($body);
 
-        $leadApi = new CustomObjectApi($client);
-        $leadApi->createOrUpdate('foo_object', [
+        $api = new CustomObjectApi($client);
+        $api->createOrUpdate('foo_object', [
             [
                 'email' => 'foolead@bar.com'
             ]
